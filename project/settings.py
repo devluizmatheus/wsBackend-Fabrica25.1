@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'autenticacao'
 ]
 
 MIDDLEWARE = [
@@ -137,9 +138,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Formulário Personalizado
 
-# ACCOUNT_FORMS = {
-#     'signup': 'autenticacao.forms.CustomSignupForm',
-# }
+ACCOUNT_FORMS = {
+    'signup': 'autenticacao.forms.CustomSignup',
+}
 
 # Simula o envio de emails no terminal
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -154,5 +155,5 @@ ACCOUNT_LOGIN_METHODS = {'email'}
 # E-mail será obrigatório para cadastro de usuários.
 ACCOUNT_EMAIL_REQUIRED = True
 
-# # Modelo personalizado de usuarios
-# AUTH_USER_MODEL = 'autenticacao.Usuarios'
+# Modelo personalizado de usuarios
+AUTH_USER_MODEL = 'autenticacao.CustomUser'
