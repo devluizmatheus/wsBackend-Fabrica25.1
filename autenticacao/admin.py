@@ -25,9 +25,8 @@ class CustomUserAdmin(admin.ModelAdmin):
         }),
     )
 
-    # Adicionando validações e comportamentos de senha corretamente (campos password1 e password2)
+
     def save_model(self, request, obj, form, change):
-        if not change:  # Apenas ao criar um novo usuário
-            # Trata as senhas no momento da criação de um novo usuário
+        if not change:  
             obj.set_password(form.cleaned_data['password1'])
         obj.save()

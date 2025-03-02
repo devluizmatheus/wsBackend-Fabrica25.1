@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Perfil{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Perfil de {{ usuario.username }}</h2>
+    
+    {% if usuario.foto %}
+        <img src="{{ usuario.foto.url }}" alt="Foto de perfil" class="img-thumbnail" width="150">
+    {% else %}
+        <p>Sem foto de perfil.</p>
+    {% endif %}
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Atualizar Perfil</button>
+    </form>
+    
+    <a href="{% url 'logout' %}" class="btn btn-danger mt-3">Sair</a>
+</div>
+{% endblock %}

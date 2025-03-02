@@ -1,14 +1,15 @@
 from django.db import models
+from django.utils import timezone
 from autenticacao.models import CustomUser
 # Create your models here.
 
 class Article(models.Model):
-    title = models.CharField('Title', max_length=255)
-    abstract = models.TextField('Resumo')
-    content = models.TextField('Conteúdo Principal')
-    pub_date = models.DateTimeField('Data de Publicação', auto_now_add=True)
-    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    section = models.CharField('Seção', max_length=100)
+    titulo = models.CharField('Titulo', max_length=255)
+    resumo = models.TextField('Resumo')
+    conteudo_principal = models.TextField('Conteúdo Principal')
+    data_publicacao = models.DateTimeField(default=timezone.now)
+    autor = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    secao = models.CharField('Seção', max_length=100)
     image_url = models.URLField(blank=True, null=True)
     image_root = models.TextField()
 

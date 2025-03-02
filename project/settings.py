@@ -73,6 +73,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -94,6 +96,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+NYT_API_KEY = 'yzOg7mHx51FveDy9t7Kfh9vGAE0Y14vn'
 
 
 # Password validation
